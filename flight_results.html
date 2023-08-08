@@ -1,98 +1,57 @@
 <!-- flight_results.html -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flight Search Results</title>
-    <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
 
-      th,
-      td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-      }
+<head>
+  <title>Flight Search Results</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-      th {
-        background-color: #f2f2f2;
-      }
-    </style>
-  </head>
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
 
-  <body>
-    <h1>Flight Search Results</h1>
-    <table id="flightTable">
-      <tr>
-        <th>From City</th>
-        <th>To City</th>
-        <th>Departure Time (Local)</th>
-        <th>Arrival Time (Local)</th>
-        <th>Price (EUR)</th>
-        <th>Booking Token</th>
-      </tr>
-    </table>
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
 
-    <script>
+<body>
+  <h1>Flight Search Results</h1>
+  <table id="flightTable">
+    <tr>
+      <th>From City</th>
+      <th>To City</th>
+      <th>Departure Time (Local)</th>
+      <th>Arrival Time (Local)</th>
+      <th>Price (EUR)</th>
+    </tr>
+  </table>
 
-function book_Flight(bookingToken){
-  
-const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
-  //console.log("Booking Token:", bookingToken);
-  const response = fetch(`https://api.tequila.kiwi.com/v2/booking/check_flights?booking_token=${bookingToken}&bnum=2&adults=1&children=0&infants=1`,
-  {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: key,
-    },
-  }).then((response) => response.json())
-  .then((response) => {
-     console.log(JSON.stringify(response));
-   // sessionStorage.setItem("flightData", JSON.stringify(response));
-   // window.location.href = '';
-  })
-  .catch((err) => console.error(err));
-}
+  <script>
+    // Retrieve the flight data from session storage
+    const flightData = JSON.parse(sessionStorage.getItem('flightData'));
 
+    if (flightData) {
+      const flightTable = document.getElementById('flightTable');
 
+      // Loop through the flight data and populate the table
+      flightData.data.forEach(flight => {
+        const row = flightTable.insertRow();
+        row.insertCell().innerText = flight.cityFrom;
+        row.insertCell().innerText = flight.cityTo;
+        row.insertCell().innerText = flight.local_departure;
+        row.insertCell().innerText = flight.local_arrival;
+        row.insertCell().innerText = flight.price;
+      });
+    }
+  </script>
+</body>
 
-      function storeToken(event){
-        const rowIndex = event.target.closest("tr").rowIndex - 1;
-
-      // Retrieve the flight data from session storage
-      const flightData = JSON.parse(sessionStorage.getItem("flightData"));
-    
-      if (flightData && flightData.data[rowIndex]) {
-        const bookingToken = flightData.data[rowIndex].booking_token;
-        book_Flight(bookingToken);
-        //https://api.tequila.kiwi.com/v2/booking/check_flights?booking_token=${booking_token}&bnum=2&adults=1&children=0&infants=1
-        //console.log("Booking Token:", bookingToken);
-      }
-      }
-      // Retrieve the flight data from session storage
-      const flightData = JSON.parse(sessionStorage.getItem("flightData"));
-
-      if (flightData) {
-        const flightTable = document.getElementById("flightTable");
-
-        // Loop through the flight data and populate the table
-        flightData.data.forEach((flight) => {
-          const row = flightTable.insertRow();
-          row.insertCell().innerText = flight.cityFrom;
-          row.insertCell().innerText = flight.cityTo;
-          row.insertCell().innerText = flight.local_departure;
-          row.insertCell().innerText = flight.local_arrival;
-          row.insertCell().innerText = flight.price;
-          const bookButton = document.createElement("button");
-          bookButton.innerText = "Book Now";
-          bookButton.addEventListener("click", storeToken);
-          row.insertCell().appendChild(bookButton);
-         
-        });
-      }
-    </script>
-  </body>
 </html>

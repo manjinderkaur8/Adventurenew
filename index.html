@@ -33,7 +33,8 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
   <!--title-->
   <title>Adventure Allies </title>
 
@@ -46,19 +47,32 @@
     <!--header for contact info-->
 
     <div class="headers  position-fixed top-0 start-0 w-100 "> 
-      <div class="contact-header  py-2">         
+
+      <div class="contact-header  py-2">  
+        
         <div class="container"> 
+
             <div class="row d-flex align-items-center"> 
+
             <div class="col-6 col-md-6 social-contact text-start ">
+
                 <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i> </a>
+
                 <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i></a>
+
             </div>
 
-            <div class="col-6   contact">             
+            <div class="col-6   contact"> 
+
+            
                 <a href="tel:+1 (888) 927 5575" class="d-flex align-items-center justify-content-end"> <i class="ph-light ph-phone-call pe-1"></i> +1 (888) 927 5575</a>
+               
             </div>
+
             </div>
+
         </div>
+
     </div>
 
 
@@ -67,50 +81,76 @@
     <div class="header1 py-md-1 bg-white">
         <div class="container">
             <div class="row d-flex align-items-center">
-                <div class="col-4"><a href="index.html">
-                  <img src="./images/logo.png" alt="a white plane">
-                </a>
+                <div class="col-4">
+                    <img src="./images/logo.png">
                 </div>
-                <div class="col-8 text-end menus">         
+
+                <div class="col-8 text-end menus">
+                    
                     <a href="index.html" class="flightlink active "> FLIGHTS</a>
+
                     <a href="cars.html"class="carslink"> CARS</a>
+
                     <a href="hotels.html"class="hotelslink"> HOTELS</a>
+
                     <a href="tourspackage.html"class="tourpackagelink"> TOUR PACKAGE</a>
+
                     <a href="about.html"class="aboutlink"> ABOUT</a>
-                    <a href="contact.html" class="contactlink"> CONTACT US </a>                   
-                    <i class="ph-light ph-list d-md-none"></i>                   
+
+                    <a href="contact.html" class="contactlink"> CONTACT US </a>
+                    
+                    <i class="ph-light ph-list d-md-none"></i>
+                    
                 </div>
             </div>
         </div>
     </div>
     </div>
 
+
     <!--header 2 -->
 
     <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center"> 
+
         <a href="index.html" class="flightslink active"> FLIGHTS</a>
+
         <a href="cars.html"class="carslink"> CARS</a>
-        <a href="hotels.html"class="hotelslink"> HOTELS</a>
+
+        <a href="hotel.html"class="hotelslink"> HOTELS</a>
+
         <a href="tourspackage.html"class="tourpackagelink"> TOUR PACKAGE</a>
+
         <a href="about.html"class="aboutlink"> ABOUT</a>
-       <a href="contact.html" class="contactlink"> CONTACT US </a>
+
+        <a href="contact.html" class="contactlink"> CONTACT US </a>
+
+
+
     </div>
+
+
+
 
   <!--section 1 -->
 
   <!--swipper1 -->
   <div class="section1  ">
+
+
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
       <div class="carousel-inner">
         <div class="carousel-item  slide1 active">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2> NEW YORK</h2>
           </div>
+
         </div>
         <div class="carousel-item slide2 ">
+
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2> SAN FRANSISCO</h2>
           </div>
+
         </div>
         <div class="carousel-item slide3 ">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100">
@@ -128,7 +168,10 @@
       </button>
     </div>
 
+    
+
     <!--form--->
+   
     <form class="container py-5 form " onsubmit="getFlights(event)">
 
       <div class="row mb-5 gap-4 gap-md-0">
@@ -151,21 +194,28 @@
 
         <div class="col-12 col-md-2 form1 pe-1">
           <span> From<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city"  class="w-100" required onchange="getText(event)">
+          <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city" class="w-100" required onselect="fetchAirportLocations()">
         </div>
-      <div class="col-12  col-md-2 pe-1 form1">
+
+
+        <div class="col-12  col-md-2 pe-1 form1">
           <span> To<span class="text-danger" style="background-color: transparent;">*</span> </span>
           <input type="text" id="toCity" name="toCity" placeholder="Enter your city" class="w-100" required>
         </div>
+
+
         <div class="col-12 col-md-2 pe-1 form1">
           <span> From Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
           <input type="date" id="dateFrom" name="dateFrom" class="w-100" required>
         </div>
-    <div class="col-12 col-md-2 pe-1 form1">
+
+
+        <div class="col-12 col-md-2 pe-1 form1">
           <span> To Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
           <input type="date" id="dateTo" name="dateTo" class="w-100" required>
         </div>
-   <div class="col-12 col-md-2 form1">
+
+        <div class="col-12 col-md-2 form1">
           <span> Travellers & Class </span>
           <div class="dropdown">
             <input type="text" id="travelClass" name="travelClass" placeholder="Choose Class" class="w-100" onclick="toggleOptions()">
@@ -188,11 +238,15 @@
             </div>
           </div>
         </div>
-     <div class="button text-center mt-0 mt-md-4">
+
+        <div class="button text-center mt-0 mt-md-4">
           <input type="submit" value="Search Flights" id="myForm">
         </div>
       </div>
     </form>
+  
+
+
   
 
 
@@ -207,92 +261,127 @@
           <div class="col-12 text-center mb-2"> 
               <h2> WHY CHOOSE US </h2>
           </div>
+
           <div class="col-12 col-md-8 text-center"> 
               <p> Seamless bookings, unbeatable prices, vast travel options, outstanding support—your ultimate destination for stress-free adventures.</p>
           </div>
       </div>
 
-      <div class="row features justify-content-between gap-3 gap-md-0">
+
+
+      <div class="row features justify-content-between">
 
           <div class="col-12 col-md-3 text-center f1 "> 
 
               <i class="ph-light ph-shield-check "></i>
-              <h3> Best Price Guaranteed</h3>
+
+              <h3> BEST PRICE GUARANTEED</h3>
+
               <P>The company promises the lowest price, ensuring customers won't find a better deal elsewhere. </P>
           </div>
 
           <div class="col-12 col-md-3 text-center f1 "> 
+
               <i class="ph-light ph-headphones"></i>
+
               <h3> 24/7 Customer Support</h3>
+
               <P>Reliable 24/7 support, ensuring prompt assistance for all your needs, any time, day or night. </P>
           </div>
 
+
           <div class="col-12 col-md-3 text-center f1 "> 
+
               <i class="ph-light ph-shield-check "></i>
+
               <h3> Fast Easy & Secure</h3>
+
               <P>Swift and secure services for enhanced customer satisfaction and peace of mind. </P>
           </div>
+
+
       </div>
+         
   </div> <!--section2-->
 
     <!--section3-->
+
     <div class="container section3"> 
+
       <div class="row head2 mb-5  justify-content-center"> 
           <div class="col-12 text-center mb-2"> 
               <h2> TOP DESTINATIONS </h2>
           </div>
+
           <div class="col-8 text-center"> 
               <p> These popular destinations have a lot to explore</p>
           </div>
       </div>
+
+     
         <div class="row images justify-content-between gap-4 gap-md-0">
 
             <div class="col-12 col-md-4">
                 <div class="zoom-effect">
-                    <img src="./images/img1-min.webp" alt="buildings" width="100%" height="250px" > 
+                    <img src="./images/img1-min.jpg" width="100%" height="250px" > 
                     <span> New York </span>
                 </div>
             </div>
+    
             <div class="col-12 col-md-4">
                 <div class="zoom-effect">
-                    <img src="./images/img2-min.webp" alt="old white building" width="100%" height="250px" > 
+                    <img src="./images/img2-min.jpg" width="100%" height="250px" > 
                     <span> Chicago </span>
                 </div>
             </div>
+    
             <div class="col-12 col-md-4">
                 <div class="zoom-effect">
-                    <img src="./images/img3-min.webp" alt="a bridge" width="100%" height="250px" > 
+                    <img src="./images/img3-min.jpg" width="100%" height="250px" > 
                     <span> San Fransico </span>
                 </div>
             </div>
         </div> 
+    
         <div class="row mt-4 gap-4 gap-md-0">
             <div class="col-12 col-md-8"> 
                 <div class="zoom-effect">
-                    <img src="./images/new-min.webp" alt="green statue" width="100%" height="250px"> 
+                    <img src="./images/new-min.jpg" width="100%" height="250px"> 
                     <span> Los Angeles </span>
                 </div>
             </div>
+    
             <div class="col-12 col-md-4"> 
                 <div class="zoom-effect">
-                    <img src="./images/chicago-min.webp" alt="a red bridge" width="100%" height="250px" > 
+                    <img src="./images/chicago-min.jpg" width="100%" height="250px" > 
                     <span> Las Vegas </span>
                 </div>
             </div>
         </div>
+
         </div>
+
 
   <!-- section4 -->
 
   <div class="section4">
+
     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
+
       <div class="parallax-bg" style="
-      background-image: url(./images/new-min.webp);
-        
-      "data-swiper-parallax="-23%"></div>
+                          background-image: url(./images/new-min.jpg);
+                          
+                        " data-swiper-parallax="-23%"></div>
+
+
       <div class="swiper-wrapper">
+
+
         <div class="swiper-slide">
+
           <div class="row justify-content-center">
+
+
             <div class="title mb-4 col-12 text-center" data-swiper-parallax="-300">Joseph</div>
             <div class="  col-6 text-center" data-swiper-parallax="-100">
               <p>
@@ -303,8 +392,12 @@
             </div>
           </div>
         </div>
+
+
         <div class="swiper-slide">
           <div class="row justify-content-center">
+
+
             <div class="title mb-4 col-12 text-center" data-swiper-parallax="-300">Robert</div>
             <div class="  col-6 text-center" data-swiper-parallax="-100">
               <p>
@@ -315,8 +408,14 @@
             </div>
           </div>
         </div>
+
+
+
+
         <div class="swiper-slide">
           <div class="row justify-content-center">
+
+
             <div class="title mb-4 col-12 text-center" data-swiper-parallax="-300">Amilie</div>
             <div class="  col-6 text-center" data-swiper-parallax="-100">
               <p>
@@ -327,63 +426,77 @@
             </div>
           </div>
         </div>
+
+
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
+
+
   </div>
 
-  <!--section5-->
-
-  <div class="container  p-3 p-md-5 section5   "> 
-    <div class="row justify-content-center gap-4 gap-md-0"> 
-        <div class="col-12 col-md-5  "> 
-            <img src="./images/img3-min.jpg"  class="img-fluid"  > 
-        </div>
 
 
+              <!--section5-->
 
-        <div class="col-12 col-md-6"> 
-            <div class="row mb-5">
-                <div class="col">
-                  <input type="text" class="form-control" id="name" placeholder="Name" aria-label="name">
+
+              <div class="container  p-3 p-md-5 section5   "> 
+                <div class="row justify-content-center gap-4 gap-md-0"> 
+                    <div class="col-12 col-md-5  "> 
+                        <img src="./images/img3-min.jpg"  class="img-fluid"  > 
+                    </div>
+
+
+
+                    <div class="col-12 col-md-6"> 
+                        <div class="row mb-5">
+                            <div class="col">
+                              <input type="text" class="form-control" id="name" placeholder="Name" aria-label="name">
+                            </div>
+                            <div class="col">
+                              <input type="email" class="form-control" id="email" placeholder="Email" aria-label="email">
+                            </div>
+                          </div>
+
+                          <div class="row mb-5">
+                            <div class="col">
+                              <input type="tel" class="form-control" id="telnumber" placeholder="Contact.no" aria-label="contact.no">
+                            </div>
+                          </div>
+                           
+                          <div class="row mb-5">
+                            <div class="col">
+                                <textarea class="form-control" id="query" name="story"
+                                    rows="5" cols="40"  aria-label="Your message">
+                                </textarea>
+                             
+                            </div>
+
+                          </div>
+
+                          <div class="row mb-3 ">
+                            <div class="col button2 text-center text-md-end ">
+                               
+                              <input type="submit" onclick="sendMail();  return false;">
+
+                             
+                            </div>
+
+                          </div>
+
+                          
+                          </div>
+                    </div>
                 </div>
-                <div class="col">
-                  <input type="email" class="form-control" id="email" placeholder="Email" aria-label="email">
-                </div>
-              </div>
 
-              <div class="row mb-5">
-                <div class="col">
-                  <input type="tel" class="form-control" id="telnumber" placeholder="Contact.no" aria-label="contact.no">
-                </div>
-              </div>
-               
-              <div class="row mb-5">
-                <div class="col">
-                    <textarea class="form-control" id="query" name="story"
-                        rows="5" cols="40"  aria-label="Your message">
-                    </textarea>
-                 
-                </div>
 
-              </div>
 
-              <div class="row mb-3 ">
-                <div class="col button2 text-center text-md-end ">
-                   
-                  <input type="submit" onclick="sendMail();  return false;">
 
-                 
-                </div>
 
-              </div>
 
-              
-              </div>
-        </div>
-    </div>
+
 
   <!-- Footer -->
   <footer
@@ -476,8 +589,69 @@
   </footer>
   <!-- Footer -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!--java script-->
-  <script src="./javascript/index.js"> </script>
+  <script src="./java script/index.js"> </script>
 
 
   <!--boostrap js-->
