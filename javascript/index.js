@@ -68,18 +68,37 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-
 // setInterval(function() { ObserveInputValue($('#fromCity').val()); }, 100);
 
+const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
+
+const getFlights = (event) => {
+  event.preventDefault();
+
+  const fromCity = document.getElementById("fromCity").value;
+  const toCity = document.getElementById("toCity").value;
+  const dateFrom = document.getElementById("dateFrom").value;
+  const dateTo = document.getElementById("dateTo").value;
+  const travelClass = document.getElementById("travelClass").value;
+
+  if (fromCity !== "" && toCity !== "" && dateFrom !== "" && dateTo !== "") {
+    sendRequest(fromCity, toCity, dateFrom, dateTo, travelClass);
+  }
+};
 
 var sendMail = () => {
-  var name = document.getElementById('name').value;
-  var email = document.getElementById('email').value;
-  var telnumber = document.getElementById('telnumber').value;
-  var query = document.getElementById('query').value;
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var telnumber = document.getElementById("telnumber").value;
+  var query = document.getElementById("query").value;
 
-  if (name.trim() === '' || email.trim() === '' || telnumber.trim() === '' || query.trim() === '') {
-    alert('Please fill in all the required fields.');
+  if (
+    name.trim() === "" ||
+    email.trim() === "" ||
+    telnumber.trim() === "" ||
+    query.trim() === ""
+  ) {
+    alert("Please fill in all the required fields.");
     return;
   }
 
@@ -92,37 +111,32 @@ var sendMail = () => {
     From: "Support@adventuresallies.com",
     To: "Support@adventuresallies.com",
     Subject: "New Query Occurred !!",
-    Body: body
-  }).then(
-    function (message) {
-      alert('Email sent successfully.');
-    }
-  ).catch(
-    function (error) {
-      alert('Error sending email. Please try again later.');
+    Body: body,
+  })
+    .then(function (message) {
+      alert("Email sent successfully.");
+    })
+    .catch(function (error) {
+      alert("Error sending email. Please try again later.");
       console.log(error);
-    }
-  );
-
-  // Assuming 'fromCity', 'toCity', 'dateFrom', 'dateTo', and 'travelClass' are available
-  sendRequest(fromCity, toCity, dateFrom, dateTo, travelClass);
-}
+    });
+};
 
 sendRequest = (fromCity, toCity, dateFrom, dateTo, travelClass) => {
-  // Replace 'key' with your actual API key
-  const apiKey = 'iTrn-p6BQN7ru9whsXaTUFby8wLILmvq';
-
-  fetch(`https://api.tequila.kiwi.com/v2/search?fly_from=${fromCity}&fly_to=${toCity}&date_from=${dateFrom}&date_to=${dateTo}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': apiKey
-    },
-  })
-  .then(response => response.json())
-  .then(response => {
-    sessionStorage.setItem('flightData', JSON.stringify(response));
-    window.location.href = 'flights.html';
-  })
-  .catch(err => console.error(err));
-}
+  fetch(
+    `https://api.tequila.kiwi.com/v2/search?fly_from=${fromCity}&fly_to=${toCity}&date_from=${dateFrom}&date_to=${dateTo}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: key,
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      sessionStorage.setItem("flightData", JSON.stringify(response));
+      window.location.href = "flights.html";
+    })
+    .catch((err) => console.error(err));
+};
