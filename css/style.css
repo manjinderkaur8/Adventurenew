@@ -603,13 +603,14 @@
 }
 
 .p1 {
-  color: var(--color2);
+  font-family: var(--rubik);
+  color: var(--color3);
   font-size: 16px;
 }
 
 .chooseus i {
   border: 1px solid var(--color1);
-  padding: 10px;
+  padding: 5px;
   border-radius: 50%;
   background-color: var(--color1);
   color: var(--color4);
@@ -674,6 +675,20 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.about-sec2 {
+  margin-top: 50px;
+  background-position: upper right;
+  background-size: cover;
+}
+.about-sec3 {
+  margin-top: 0px;
+  background-position: upper right;
+  background: contain;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
 
 .layer4 {
   height: 60vh;
@@ -685,13 +700,80 @@
   color: var(--color4);
   font-size: 42px;
 }
+container py-3  {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100%);
+  gap: 0px;
+}
+
+.grid-item {
+  width: 450px;
+  height: 300px;
+  margin-left: 50px;
+  margin-right: -0.10px;
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.carsec-8 {
+  height: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
+}
 
 .about p {
   font-family: var(--rubik);
-  font-size: 18px;
+  font-size: 15px;
   color: var(--color3);
   line-height: 36px;
   font-weight: 200;
+}
+
+/* change */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.fade-box {
+  opacity: 0;
+  animation: fade-in 2s ease-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+.about {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /*----------error page --------------------*/
@@ -829,4 +911,123 @@
   .contact-sec1 {
     padding: 0px;
   }
+}
+
+/* index fade box */
+.fade-box-1 {
+  opacity: 10px;
+  animation: fade-in 2s ease-out forwards;
+}
+
+/* cars  */
+.animation-box {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+/* car rental  */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.car-image {
+  width: 500px;
+  height: auto;
+  margin-right: 50px;
+  animation: fadeLeft 1s ease-out forwards;
+}
+
+.text-box {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+.head2 h2 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.features {
+  margin-top: 20px;
+}
+
+.feature-box {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 22px;
 }
