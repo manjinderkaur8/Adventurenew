@@ -913,3 +913,8 @@ body {
   }
 }
 
+/* index fade box */
+.fade-box-1 {
+  opacity: 10px;
+  animation: fade-in 2s ease-out forwards;
+}
