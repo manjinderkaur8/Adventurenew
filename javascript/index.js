@@ -74,7 +74,8 @@ const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
 
 const getFlights = (event) => {
   event.preventDefault();
-
+  const loading = document.getElementById("loading");
+  loading.style.display = "flex";
   const fromCity = document.getElementById("fromCity").value;
   const toCity = document.getElementById("toCity").value;
   const dateFrom = document.getElementById("dateFrom").value;
@@ -139,4 +140,61 @@ sendRequest = (fromCity, toCity, dateFrom, dateTo, travelClass) => {
       window.location.href = "flights.html";
     })
     .catch((err) => console.error(err));
+};
+// Function to fetch airport locations from Tequila Kiwi API
+async function fetchAirportLocations(query, dropdownId) {
+  const response = await fetch(
+    `https://tequila-api.kiwi.com/locations/query?term=${query}`,
+    {
+      headers: {
+        apikey: key,
+      },
+    }
+  );
+
+  const data = await response.json();
+  const dropdown = document.getElementById(dropdownId);
+
+  // Clear existing suggestions
+  dropdown.innerHTML = "";
+
+  // Add location suggestions to the dropdown
+  data.locations.forEach((location) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = location.name;
+    listItem.onclick = () => {
+      document.getElementById(dropdownId.replace("Dropdown", "")).value =
+        location.name;
+      dropdown.innerHTML = "";
+    };
+    dropdown.appendChild(listItem);
+  });
+}
+
+// Event listeners for "From" and "To" input fields
+document.getElementById("fromCity").addEventListener("input", function () {
+  const query = this.value.trim();
+  if (query !== "") {
+    fetchAirportLocations(query, "fromCityDropdown");
+  }
+});
+
+document.getElementById("toCity").addEventListener("input", function () {
+  const query = this.value.trim();
+  if (query !== "") {
+    fetchAirportLocations(query, "toCityDropdown");
+  }
+});
+
+function toggleDateInputs(enableRoundTrip) {
+  const dateFromInput = document.getElementById("dateFrom");
+  const dateToInput = document.getElementById("dateTo");
+
+  dateFromInput.disabled = false; // Enable the "From Date" input in both cases
+  dateToInput.disabled = !enableRoundTrip; // Enable/disable the "To Date" input based on the selected option
+}
+
+window.onload = function () {
+  // By default, when the window loads, "One-way" is selected, so disable the "To Date" input
+  toggleDateInputs(false);
 };

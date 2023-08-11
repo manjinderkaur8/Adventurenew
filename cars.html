@@ -45,15 +45,17 @@
 
   <!--header for contact info-->
 
-  <div class="headers  position-fixed top-0 start-0 w-100 ">
+  <div class="headers  position-fixed top-0 start-0 w-100 "> <!--both headers-->
+
     <div class="contact-header  py-2">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-6 col-md-6 social-contact text-start">
+          <div class="col-6  social-contact text-start ">
             <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i> </a>
             <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i></a>
           </div>
-          <div class="col-6   contact">
+
+          <div class="col-6  contact">
             <a href="tel:+1 (888) 927 5575" class="d-flex align-items-center justify-content-end"> <i
                 class="ph-light ph-phone-call pe-1"></i> +1 (888) 927 5575</a>
           </div>
@@ -63,17 +65,16 @@
 
 
     <!--header 1 -->
-    <div class="header1 py-md-1 bg-white">
+
+    <div class="header1  bg-white">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-4">
-            <a href="index.html">
+          <div class="col-2"><a href="index.html">
               <img src="./images/logo.png" alt="a white plane">
             </a>
           </div>
-
-          <div class="col-8 text-end menus">
-            <a href="index.html" class="flightlink"> FLIGHTS</a>
+          <div class="col-10 text-end menus">
+            <a href="index.html" class="flightlink  "> FLIGHTS</a>
             <a href="cars.html" class="carslink active"> CARS</a>
             <a href="hotels.html" class="hotelslink"> HOTELS</a>
             <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
@@ -86,10 +87,11 @@
       </div>
     </div>
   </div>
-  <!--header 2 -->
-  <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
 
-    <a href="index.html" class="flightslink"> FLIGHTS</a>
+  <!--header 2 -->
+
+  <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
+    <a href="index.html" class="flightslink "> FLIGHTS</a>
     <a href="cars.html" class="carslink active"> CARS</a>
     <a href="hotels.html" class="hotelslink"> HOTELS</a>
     <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
@@ -102,9 +104,9 @@
   <!--section 1 -->
 
   <!--swipper1 -->
-  <div class="section1">
+  <div class="section1 carsec-1">
     <div>
-      <div class="carousel-inner">
+      <div class="carousel-inner flightinner">
         <div class="carousel-item  slide1 car-bg active">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2 class="carhead"> CARS </h2>
@@ -113,9 +115,7 @@
       </div>
     </div>
 
-
     <!--form--->
-
     <form class="container py-5 px-3 px-md-4 form " onsubmit="getFlights(event)">
 
       <div class="col-12  mb-4 ">
@@ -175,14 +175,16 @@
       </div>
     </form>
 
-  </div> <!--section1 end-->
-  <div class="animation-box">
-    <h1>
-      <div class="d-flex justify-content-center align-items-center">
-        Car Rentals with
-        Adventures Allies</div>
+  </div> 
+  <!--section1 end-->
+
+
+  
+    <div class="container animation-box"> 
+    <h1 class="text-center mb-4">
+      Car Rentals with Adventures Allies
     </h1>
-    <p>
+    <p class="text-center">
       At Adventures Allies, we believe that every traveler deserves the freedom to explore their destination at
       their own pace. Our commitment to providing you with seamless travel experiences extends beyond flights and
       hotels. Picture yourself driving along winding coastal roads, through quaint villages, or towards breathtaking
@@ -191,26 +193,34 @@
       suit your preferences.
     </p>
   </div>
-<!-- adiiing -->
-<div class="container">
-  <div class="content">
-      <img src=".\images\car.webp.jpg" alt="Car" class="car-image">
-      <div class="text-box">
-          <h2>Our Car Rental Promise</h2>
-          <p><li> Selection: Whether you're seeking the convenience of a compact car, the spaciousness of an SUV,
-              or the elegance of a luxury vehicle, we have a wide array of choices to match your needs.</li></p>
-          <p><li>Seamless Booking: Just like our flight and hotel booking services, Adventures Allies offers a
+
+
+
+<!---box 2 -->
+
+<div class="container box2">
+  <div class="row ">
+    <div class="col-12 col-md-6 p-0 ">
+      <img src="./images/car.jpg" class="img-fluid"> 
+    </div>
+
+    <div class="col-12 col-md-6 text-box p-3 ">
+      <h2 class="mb-2">Our Car Rental Promise</h2>
+          <p> Selection: Whether you're seeking the convenience of a compact car, the spaciousness of an SUV,
+              or the elegance of a luxury vehicle, we have a wide array of choices to match your needs.</p>
+          <p>Seamless Booking: Just like our flight and hotel booking services, Adventures Allies offers a
               hassle-free car rental booking process. With a few clicks, you can secure the perfect vehicle for
-              your adventure.</li></p>
-          <p><li>Transparent Pricing: Say goodbye to hidden fees and unexpected charges. Our transparent pricing
+              your adventure.</p>
+          <p>Transparent Pricing: Say goodbye to hidden fees and unexpected charges. Our transparent pricing
               structure ensures that you know exactly what you're paying for, allowing you to plan your budget
-              with confidence.</li></p>
-          <p><li>Customization: Tailor your rental experience to fit your journey. Need a child seat or a GPS? No
+              with confidence.</p>
+          <p>Customization: Tailor your rental experience to fit your journey. Need a child seat or a GPS? No
               problem. Adventures Allies lets you customize your rental with add-ons that enhance your comfort
-              and convenience.</li></p>
-      </div>
+              and convenience.</p>
+    </div>
   </div>
 </div>
+
   <!--section2-->
   <div class="container carsec-2 py-5 px-3 px-md-4">
     <div class="row justify-content-center gap-4 ">
