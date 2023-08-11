@@ -231,6 +231,8 @@
     // Retrieve the flight data from session storage
     const flightData = JSON.parse(sessionStorage.getItem('flightData'));
 
+redirect =()=> window.location.href = 'contact.html';
+
     if (flightData) {
       const flightTable = document.getElementById('flightTable');
 
@@ -242,7 +244,12 @@
         row.insertCell().innerText = flight.local_departure;
         row.insertCell().innerText = flight.local_arrival;
         row.insertCell().innerText = flight.price;
-        row.insertCell().innerHTML = '<button type="button" class="btn btn-primary">Book Now</button>';
+        const bookButton = document.createElement("button");
+        bookButton.className += ' ' + 'btn btn-primary';
+          bookButton.innerText = "Book Now";
+          bookButton.addEventListener("click",redirect);
+          row.insertCell().appendChild(bookButton);
+        //row.insertCell().innerHTML = '<button type="button" class="btn btn-primary" >Book Now</button>';
       });
     }
   </script>

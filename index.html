@@ -34,6 +34,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
 
   <!--title-->
   <title>Adventure Allies </title>
@@ -131,41 +132,45 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
     <!--form--->
     <form class="container py-5 form " onsubmit="getFlights(event)">
 
-      <div class="row mb-5 gap-4 gap-md-0">
-
-        <div class="col-12 col-md-2 d-flex ">
+      <div class="row mb-5 gap-4 gap-md-3">
+        <div class="col-12 col-md-2 d-flex">
           <label class="px-4">
             <input type="radio" name="flightOption" value="oneWay" checked>
             One-way
           </label>
         </div>
-        <div class="col-12 col-md-2">
+        <div class="col-12 col-md-1">
           <label class="px-4">
             <input type="radio" name="flightOption" value="roundTrip">
             Round-trip
           </label>
         </div>
-      </div>
-
-      <div class="row d-flex align-items-center justify-content-between position-relative gap-4 gap-md-0">
-
+        </div>
+        
         <div class="col-12 col-md-2 form1 pe-1">
-          <span> From<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city" class="w-100" required
-            onselect="fetchAirportLocations()">
+          <span> From<span class="text-danger">*</span> </span>
+          <div class="dropdown">
+            <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city" class="w-100" required>
+            <ul class="dropdown-list" id="fromCityDropdown"></ul>
+          </div>
         </div>
-
-
-        <div class="col-12  col-md-2 pe-1 form1">
-          <span> To<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="text" id="toCity" name="toCity" placeholder="Enter your city" class="w-100" required>
+        
+        <div class="col-12 col-md-2 pe-1 form1">
+          <span> To<span class="text-danger">*</span> </span>
+          <div class="dropdown">
+            <input type="text" id="toCity" name="toCity" placeholder="Enter your city" class="w-100" required>
+            <ul class="dropdown-list" id="toCityDropdown"></ul>
+          </div>
         </div>
-
-
+      
+        
         <div class="col-12 col-md-2 pe-1 form1">
           <span> From Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
           <input type="date" id="dateFrom" name="dateFrom" class="w-100" required>
@@ -207,12 +212,13 @@
         </div>
       </div>
     </form>
-
+    
 
 
   </div>
   <!--section1 end-->
 
+  
 
   <!--section2-->
 
