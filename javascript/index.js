@@ -71,10 +71,38 @@ var swiper = new Swiper(".mySwiper", {
 // setInterval(function() { ObserveInputValue($('#fromCity').val()); }, 100);
 
 const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
+const client_id = "yFYG6GTjtwTv0av5R9azmzCg0vkIgLA6";
+const client_secret = "Hs1E44zzAC6fwePg";
+// Access Token is here just use it as authToken in request
+var authToken = "";
+
+
+const AuthUser = () => {
+  fetch(
+    `https://test.api.amadeus.com/v1/security/oauth2/token`,
+    {
+      method: "POST",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body: new URLSearchParams({
+        client_id: client_id,
+        client_secret: client_secret,
+        grant_type: "client_credentials"
+      })
+    }
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      
+      authToken = response.access_token;
+      getData(authToken);
+    })
+    .catch((err) => console.log(err));
+}
 
 const getFlights = (event) => {
   event.preventDefault();
-
+  const loading = document.getElementById("loading");
+  loading.style.display = "flex";
   const fromCity = document.getElementById("fromCity").value;
   const toCity = document.getElementById("toCity").value;
   const dateFrom = document.getElementById("dateFrom").value;
@@ -83,6 +111,9 @@ const getFlights = (event) => {
 
   if (fromCity !== "" && toCity !== "" && dateFrom !== "" && dateTo !== "") {
     sendRequest(fromCity, toCity, dateFrom, dateTo, travelClass);
+  /*   console.log(
+      `${fromCity}, ${toCity}, ${dateFrom}, ${dateTo}, ${travelClass}`
+    ); */
   }
 };
 
@@ -123,20 +154,84 @@ var sendMail = () => {
 };
 
 sendRequest = (fromCity, toCity, dateFrom, dateTo, travelClass) => {
+
+  AuthUser();
+ 
+};
+
+function getData(token){
   fetch(
-    `https://api.tequila.kiwi.com/v2/search?fly_from=${fromCity}&fly_to=${toCity}&date_from=${dateFrom}&date_to=${dateTo}`,
+    `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=NYC&destinationLocationCode=LON&departureDate=2023-08-14&returnDate=2023-08-21&adults=2`,
     {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: key,
-      },
+      headers:  new URLSearchParams( {
+        "Authorization": `Bearer ${token}`,
+      }),
     }
   )
     .then((response) => response.json())
     .then((response) => {
       sessionStorage.setItem("flightData", JSON.stringify(response));
-      window.location.href = "flights.html";
+      // window.location.href = "flights.html";
     })
     .catch((err) => console.error(err));
+}
+// Function to fetch airport locations from Tequila Kiwi API
+async function fetchAirportLocations(query, dropdownId) {
+  const response = await fetch(
+    `https://tequila-api.kiwi.com/locations/query?term=${query}`,
+    {
+      headers: {
+        apikey: key,
+      },
+    }
+  );
+
+  const data = await response.json();
+  const dropdown = document.getElementById(dropdownId);
+
+  // Clear existing suggestions
+  dropdown.innerHTML = "";
+
+  // Add location suggestions to the dropdown
+  data.locations.forEach((location) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${location.code} - ${location.name}`;
+    // listItem.textContent = location.code;
+    listItem.onclick = () => {
+      document.getElementById(dropdownId.replace("Dropdown", "")).value =
+        location.code;
+      dropdown.innerHTML = "";
+    };
+    dropdown.appendChild(listItem);
+  });
+}
+
+// Event listeners for "From" and "To" input fields
+document.getElementById("fromCity").addEventListener("input", function () {
+  // console.log(document.getElementById("fromCity"));
+  const query = this.value.trim();
+  if (query !== "") {
+    fetchAirportLocations(query, "fromCityDropdown");
+  }
+});
+
+document.getElementById("toCity").addEventListener("input", function () {
+  const query = this.value.trim();
+  if (query !== "") {
+    fetchAirportLocations(query, "toCityDropdown");
+  }
+});
+
+function toggleDateInputs(enableRoundTrip) {
+  const dateFromInput = document.getElementById("dateFrom");
+  const dateToInput = document.getElementById("dateTo");
+
+  dateFromInput.disabled = false;
+  dateToInput.disabled = !enableRoundTrip; 
+}
+
+window.onload = function () {
+  // By default, when the window loads, "One-way" is selected, so disable the "To Date" input
+  toggleDateInputs(false);
 };
