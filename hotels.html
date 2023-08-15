@@ -33,9 +33,11 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
 
+  
   <!--title-->
-  <title>Adventure Allies Hotels Booking</title>
+  <title>Travizip Hotels Booking</title>
 
 </head>
 
@@ -43,67 +45,73 @@
 
 
 
-  <!--header for contact info-->
+    <!--header for contact info-->
 
-  <div class="headers  position-fixed top-0 start-0 w-100 ">
-    <div class="contact-header  py-2">
-      <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-6 col-md-6 social-contact text-start ">
-            <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i> </a>
-            <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i></a>
+    <div class="headers  position-fixed top-0 start-0 w-100 "> <!--both headers-->
+
+      <div class="contact-header  py-2">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-6  social-contact text-start ">
+              <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i> </a>
+              <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i></a>
+            </div>
+  
+            <div class="col-6  contact">
+              <a href="tel:+1 (888) 575 7616" class="d-flex align-items-center justify-content-end"> <i
+                  class="ph-light ph-phone-call pe-1"></i>+1 (888) 575 7616
+                </a>
+            </div>
           </div>
-          <div class="col-6   contact">
-            <a href="tel:+1 (888) 927 5575" class="d-flex align-items-center justify-content-end"> <i
-                class="ph-light ph-phone-call pe-1"></i> +1 (888) 927 5575</a>
+        </div>
+      </div>
+  
+  
+      <!--header 1 -->
+  
+      <div class="header1  bg-white">
+        <div class="container">
+          <div class="row d-flex align-items-center py-2">
+            <div class="col-2"><a href="index.html">
+                <img src="./images/logo.png" class="img-fluid" alt="a blue plane">
+              </a>
+            </div>
+            <div class="col-10 text-end menus">
+              <a href="index.html" class="flightlink  "> FLIGHTS</a>
+              <a href="cars.html" class="carslink "> CARS</a>
+              <a href="hotels.html" class="hotelslink active"> HOTELS</a>
+              <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
+              <a href="about.html" class="aboutlink"> ABOUT</a>
+              <a href="contact.html" class="contactlink"> CONTACT US </a>
+              <a href="terms&condition.html" >TERMS & CONDITION</a>
+              <i class="ph-light ph-list d-md-none"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-
-    <!--header 1 -->
-
-    <div class="header1 py-md-1 bg-white">
-      <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-4">
-            <a href="index.html">
-              <img src="./images/logo.png" alt="a white plane">
-            </a>
-          </div>
-          <div class="col-8 text-end menus">
-            <a href="index.html" class="flightlink "> FLIGHTS</a>
-            <a href="cars.html" class="carslink"> CARS</a>
-            <a href="hotels.html" class="hotelslink  active"> HOTELS</a>
-            <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
-            <a href="about.html" class="aboutlink"> ABOUT</a>
-            <a href="contact.html" class="contactlink"> CONTACT US </a>
-            <a href="terms&condition.html" >TERMS & CONDITION</a>
-            <i class="ph-light ph-list d-md-none"></i>
-          </div>
-        </div>
-      </div>
+  
+    <!--header 2 -->
+  
+    <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
+      <a href="index.html" class="flightslink "> FLIGHTS</a>
+      <a href="cars.html" class="carslink "> CARS</a>
+      <a href="hotels.html" class="hotelslink active"> HOTELS</a>
+      <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
+      <a href="about.html" class="aboutlink"> ABOUT</a>
+      <a href="contact.html" class="contactlink"> CONTACT US </a>
+      <a href="terms&condition.html" >TERMS & CONDITION</a>
     </div>
-  </div>
 
-  <!--header 2 -->
-  <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
-    <a href="index.html" class="flightslink "> FLIGHTS</a>
-    <a href="cars.html" class="carslink"> CARS</a>
-    <a href="hotels.html" class="hotelslink  active"> HOTELS</a>
-    <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
-    <a href="about.html" class="aboutlink"> ABOUT</a>
-    <a href="contact.html" class="contactlink"> CONTACT US </a>
-    <a href="terms&condition.html" >TERMS & CONDITION</a>
-  </div>
+
+
+
 
   <!--swipper1 -->
-  <div class="section1  ">
-
+  <div class="section1">
 
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
+      <div class="carousel-inner flightinner">
         <div class="carousel-item  hslide1 active">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2> NEW YORK</h2>
@@ -152,14 +160,15 @@
         </div>
 
         <div class="col-12 col-md-2 pe-1 form1">
-          <span> Check-in<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="date" id="dateFrom" name="dateFrom" class="w-100" required>
+          <span> Check-In </span>
+          <input type="text" id="departureDate" class="datefrom w-100" name="departureDate" required placeholder="yyyy-mm-dd">
+        </div>
+      
+        <div class="col-12 col-md-2 pe-1 form1">
+          <span> Check-Out </span>
+          <input type="text" id="returnDate" class="toDate w-100" name="returnDate" required placeholder="yyyy-mm-dd">
         </div>
 
-        <div class="col-12 col-md-2 pe-1 form1">
-          <span> Check-out<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="date" id="dateTo" name="dateTo" class="w-100" required>
-        </div>
 
         <div class="col-12  col-md-2 pe-1 form1">
           <span> Guests<span class="text-danger" style="background-color: transparent;">*</span> </span>
@@ -177,11 +186,13 @@
     </form>
   </div> <!--section1 end-->
 
+
+
   <!--section2-->
-  <div class="animation-box">
+
   <div class="container section2">
-    <div class="row head2 mb-5 justify-content-center">
-        <div class="col-12 text-center mb-2">
+    <div class="row head2 mb-4 justify-content-center">
+        <div class="col-12 text-center">
             <h2>WHY CHOOSE US</h2>
         </div>
         <div class="col-12 col-md-8 text-center">
@@ -190,141 +201,148 @@
         </div>
     </div>
 
-    <div class="row features justify-content-between">
-        <div class="col-12 col-md-3 text-center feature-box">
+    <div class="row  justify-content-between gap-4 gap-md-0">
+
+        <div class="col-12 col-md-3  text-center feature-box  py-3 ">
             <i class="ph-light ph-shield-check icon"></i>
             <h3>Best Price Guaranteed</h3>
             <p>The company promises the lowest price, ensuring customers won't find a better deal elsewhere.</p>
         </div>
-        <div class="col-12 col-md-3 text-center feature-box">
-            <i class="ph-light ph-headphones icon"></i>
-            <h3>24/7 Customer Support</h3>
-            <p>Reliable 24/7 support, ensuring prompt assistance for all your needs, any time, day or night.</p>
-        </div>
 
-        <div class="col-12 col-md-3 text-center feature-box">
-            <i class="ph-light ph-shield-check icon"></i>
-            <h3>Fast Easy & Secure</h3>
-            <p>Swift and secure services for enhanced customer satisfaction and peace of mind.</p>
-        </div>
+        <div class="col-12 col-md-3 text-center feature-box  py-3 ">
+          <i class="ph-light ph-headphones icon"></i>
+          <h3>24/7 Customer Support</h3>
+          <p>Reliable 24/7 support, ensuring prompt assistance for all your needs, any time, day or night.</p>
+      </div>
+
+      <div class="col-12 col-md-3 text-center feature-box  py-3 ">
+        <i class="ph-light ph-shield-check icon"></i>
+        <h3>Fast Easy & Secure</h3>
+        <p>Swift and secure services for enhanced customer satisfaction and peace of mind.</p>
+    </div>
+
     </div>
 </div>
-  </div> <!--section2 end-->
+
+   <!--section2 end-->
 
   <!--section3-->
-  <div class="container  p-3 p-md-5 section5   ">
-    <div class="row justify-content-center gap-4 gap-md-0">
-      <div class="col-12 col-md-5 sec5-img ">
-        <img src="./images/hotel4.webp" class="w-100 h-100">
+
+  <div class="container  p-3 p-md-5 section5 contactform  ">
+    <div class="row justify-content-right gap-4 gap-md-0">
+      <div class="col-12 col-md-5  ">
+        <img src="./images/hotel2.webp" class="img-fluid">
       </div>
+
       <div class="col-12 col-md-6">
         <div class="row mb-2">
           <div class="col mb-2">
             <div class="fade-box"></div>
-            <div class="about-sec3">
-              <div class="align-items-center">
-                <h1>
-                  Contact Us</h1>
-              </div>
-            </div>
-            <br>
+  <div class="about-sec3">
+    <div class="align-items-center">
+      <h1>
+        Contact Us</h1>
+    </div>
+  </div>
+  <br>
+  <div class="row mb-2">
+    <div class="col " >
+            <input type="text" class="form-control" id="name" placeholder="Name" aria-label="name">
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col mb-2" >
+            <input type="email" class="form-control" id="email" placeholder="Email" aria-label="email">
+          </div>
+        </div>
 
-            <div class="row mb-5">
-              <div class="col">
-                <input type="text" id="name" class="form-control" placeholder="Name" aria-label="name">
-              </div>
-              <div class="col">
-                <input type="email" id="email" class="form-control" placeholder="Email" aria-label="email">
-              </div>
-            </div>
+        <div class="row mb-2">
+          <div class="col">
+            <input type="tel" class="form-control" id="telnumber" placeholder="Contact.no" aria-label="contact.no">
+          </div>
+        </div>
 
-            <div class="row mb-5">
-              <div class="col">
-                <input type="tel" id="telnumber" class="form-control" placeholder="Contact.no" aria-label="contact.no">
-              </div>
-            </div>
-
-            <div class="row mb-5">
-              <div class="col">
-                <textarea class="form-control" id="query" name="story" rows="5" cols="40" aria-label="Your Query">
+        <div class="row mb-2">
+          <div class="col">
+            <textarea class="form-control" id="query" name="story" rows="5" cols="40" aria-label="Your message">
                     </textarea>
-              </div>
-            </div>
-            <div class="row mb-3 ">
-              <div class="col button2 text-center text-md-end ">
-                <input type="submit" onclick="sendMail();  return false;">
-
-
-              </div>
-            </div>
-
 
           </div>
         </div>
-      </div>
-    </div>
-    <div class="animation-box">
-      <div class="container section3">
-        <div class="row head2 mb-5  justify-content-center">
-          <div class="col-12 text-center mb-2">
-            <h2> TOP DESTINATIONS </h2>
+        <div class="row mb-3 ">
+          <div class="col button2 text-center text-md-end ">
+            <input type="submit" onclick="sendMail();  return false;">
           </div>
-          <div >
-            <p>Adventures Allies is more than a booking platform. It's your trusted companion for all things travel.
-              Whether you're embarking on a cross-country road trip, a scenic drive along the coast, or simply need a
-              vehicle for local exploration, our Car Rentals page has the keys to unlock your next adventure.
-
-              So, fasten your seatbelt and let the journey begin.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row images justify-content-between gap-4 gap-md-0">
-
-      <div class="col-12 col-md-4">
-        <div class="zoom-effect">
-          <img src="./images/new-min.webp" width="100%" height="250px">
-          <span> New York </span>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <div class="zoom-effect">
-          <img src="./images/canyon.webp" width="100%" height="250px">
-          <span> Sedona And The Grand Canyon </span>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <div class="zoom-effect">
-          <img src="./images/yosemti.webp" width="100%" height="250px">
-          <span> Yosemite National Park </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-4 gap-4 gap-md-0">
-      <div class="col-12 col-md-8">
-        <div class="zoom-effect">
-          <img src="./images/florida.webp" width="100%" height="250px">
-          <span> Florida </span>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <div class="zoom-effect">
-          <img src="./images/hawai.webp" width="100%" height="250px">
-          <span> Hawaii </span>
+        </div></div>
         </div>
       </div>
     </div>
   </div>
 
 
+    <div class="animation-box mb-5">
+      <div class="container section3">
+        <div class="row head2 mb-5  justify-content-center">
+          <div class="col-12 text-center mb-2">
+            <h2> TOP DESTINATIONS </h2>
+          </div>
+            <p class="text-center">Travizip is more than a booking platform. It's your trusted companion for all things travel.
+              Whether you're embarking on a cross-country road trip, a scenic drive along the coast, or simply need a
+              vehicle for local exploration, our Car Rentals page has the keys to unlock your next adventure.
+              So, fasten your seatbelt and let the journey begin.
+            </p>
+        </div>
+
+        <div class="row images justify-content-between gap-4 gap-md-0">
+
+          <div class="col-12 col-md-4">
+            <div class="zoom-effect">
+              <img src="./images/new-min.webp" width="100%" height="250px">
+              <span> New York </span>
+            </div>
+          </div>
+    
+          <div class="col-12 col-md-4">
+            <div class="zoom-effect">
+              <img src="./images/canyon.webp" width="100%" height="250px">
+              <span> Sedona And The Grand Canyon </span>
+            </div>
+          </div>
+    
+          <div class="col-12 col-md-4">
+            <div class="zoom-effect">
+              <img src="./images/yosemti.webp" width="100%" height="250px">
+              <span> Yosemite National Park </span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row mt-4 gap-4 gap-md-0">
+          <div class="col-12 col-md-8">
+            <div class="zoom-effect">
+              <img src="./images/florida.webp" width="100%" height="250px">
+              <span> Florida </span>
+            </div>
+          </div>
+    
+          <div class="col-12 col-md-4">
+            <div class="zoom-effect">
+              <img src="./images/hawai.webp" width="100%" height="250px">
+              <span> Hawaii </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+
   <!-- Footer -->
   <footer class="text-center text-lg-start text-white py-5" style="background-color:var(--color1)">
+
     <!-- Section: Social media -->
+
     <!-- Section: Links  -->
     <section class="">
       <div class="container text-center text-md-start mt-5">
@@ -335,12 +353,14 @@
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">Arc Verified Travel Consultant</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p>
-              Adventure Allies INC
-            </p>
+            <p> <h4> Travizip </h4></p>
+
             <p> Discover, explore, and experience the world through remarkable travel adventures.</p>
           </div>
           <!-- Grid column -->
+
+
+
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 legal-links">
             <!-- Links -->
@@ -366,15 +386,20 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p> <a href="https://www.google.com/maps?q=4995 W 539 N 
-              Huntington, IN 46750"> <i class="ph ph-map-pin"></i> 4995 W 539 N
-                Huntington, IN 46750</a></p>
-            <p> <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Info@adventuresallies.com</a>
-            <p> <a href="mailto:Support@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Support@adventuresallies.com</a>
-            <p> <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i>+1 (888) 927 5575 </a>
-            <p> <a href="tel:+1 (888) 528 3365"> <i class="ph ph-phone-call"></i>+1 (888) 528 3365 </a> </p>
+            <p> <a href="https://www.google.com/maps?q=Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              "> <i class="ph ph-map-pin"></i> Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              </a></p>
+            <p> <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i>
+              Info@travizip.com</a>
+            <p> <a href="mailto:Support@travizip.com
+              "> <i class="ph ph-envelope-simple"></i> </i>
+              Support@travizip.com
+            </a>
+            <p> <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i>+1 (888) 575 7616 </a>
           </div>
           <!-- Grid column -->
         </div>
@@ -386,12 +411,28 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2023 Copyright:
-      <a class="text-white" href="index.html">Adventure Allies</a>
+      <a class="text-white" href="index.html">Travizip</a>
     </div>
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
 
+
+  <!-- script for the calander  -->
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    flatpickr("#departureDate", {
+      // Additional options for departure date picker
+    });
+
+    flatpickr("#returnDate", {
+      // Additional options for return date picker
+    });
+  });
+</script>
 
 
   <!--java script-->

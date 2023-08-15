@@ -35,8 +35,11 @@
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+
+
   <!--title-->
-  <title>Adventure Allies </title>
+  <title> Travizip</title>
 
 </head>
 
@@ -46,18 +49,20 @@
 
   <!--header for contact info-->
 
-  <div class="headers  position-fixed top-0 start-0 w-100 ">
+  <div class="headers  position-fixed top-0 start-0 w-100 "> <!--both headers-->
+
     <div class="contact-header  py-2">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-6 col-md-6 social-contact text-start ">
-            <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i> </a>
-            <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i></a>
+          <div class="col-6  social-contact text-start ">
+            <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i> </a>
+            <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i></a>
           </div>
 
-          <div class="col-6   contact">
-            <a href="tel:+1 (888) 927 5575" class="d-flex align-items-center justify-content-end"> <i
-                class="ph-light ph-phone-call pe-1"></i> +1 (888) 927 5575</a>
+          <div class="col-6  contact">
+            <a href="tel:+1 (888) 575 7616" class="d-flex align-items-center justify-content-end"> <i
+                class="ph-light ph-phone-call pe-1"></i>+1 (888) 575 7616
+              </a>
           </div>
         </div>
       </div>
@@ -66,14 +71,14 @@
 
     <!--header 1 -->
 
-    <div class="header1 py-md-1 bg-white">
+    <div class="header1  bg-white">
       <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-4"><a href="index.html">
-              <img src="./images/logo.png" alt="a white plane">
+        <div class="row d-flex align-items-center py-2">
+          <div class="col-2"><a href="index.html">
+              <img src="./images/logo.png" class="img-fluid" alt="a blue plane">
             </a>
           </div>
-          <div class="col-8 text-end menus">
+          <div class="col-10 text-end menus">
             <a href="index.html" class="flightlink active "> FLIGHTS</a>
             <a href="cars.html" class="carslink"> CARS</a>
             <a href="hotels.html" class="hotelslink"> HOTELS</a>
@@ -104,8 +109,9 @@
 
   <!--swipper1 -->
   <div class="section1  ">
+
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
+      <div class="carousel-inner flightinner">
         <div class="carousel-item  slide1 active">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2> NEW YORK</h2>
@@ -131,51 +137,57 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
 
     <!--form--->
-    <form class="container py-5 form " onsubmit="getFlights(event)">
+    <form class="container py-5 form px-4 mt-4 mb-mt-0" onsubmit="getFlights(event)">
 
-      <div class="row mb-5 gap-4 gap-md-0">
-
-        <div class="col-12 col-md-2 d-flex ">
-          <label class="px-4">
-            <input type="radio" name="flightOption" value="oneWay" checked>
+      <div class="row mb-5 ">
+        <div class="col-12 col-md-4 d-flex gap-4 ">
+          <label class="">
+            <input type="radio" name="flightOption" value="oneWay"  onclick="toggleDateInputs(false)" checked>
             One-way
           </label>
-        </div>
-        <div class="col-12 col-md-2">
-          <label class="px-4">
-            <input type="radio" name="flightOption" value="roundTrip">
+
+          <label class="">
+            <input type="radio" name="flightOption" value="roundTrip" onclick="toggleDateInputs(true)">
             Round-trip
           </label>
         </div>
-      </div>
-
-      <div class="row d-flex align-items-center justify-content-between position-relative gap-4 gap-md-0">
+        </div>
+        
+       <div class="row d-flex align-items-center justify-content-between position-relative gap-4 gap-md-0">
 
         <div class="col-12 col-md-2 form1 pe-1">
-          <span> From<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city" class="w-100" required
-            onselect="fetchAirportLocations()">
+          <span> From </span>
+          <div class="dropdown" onclick="AuthUser()">
+            <input type="text" id="fromCity" name="fromCity" placeholder="Enter your city" class="w-100" required>
+            <ul class="dropdown-list" id="fromCityDropdown"></ul>
+          </div>
         </div>
-
-
-        <div class="col-12  col-md-2 pe-1 form1">
-          <span> To<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="text" id="toCity" name="toCity" placeholder="Enter your city" class="w-100" required>
-        </div>
-
-
+        
         <div class="col-12 col-md-2 pe-1 form1">
-          <span> From Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="date" id="dateFrom" name="dateFrom" class="w-100" required>
+          <span> To</span>
+          <div class="dropdown">
+            <input type="text" id="toCity" name="toCity" placeholder="Enter your city" class="w-100" required>
+            <ul class="dropdown-list" id="toCityDropdown"></ul>
+          </div>
         </div>
-
-
+      
+        
         <div class="col-12 col-md-2 pe-1 form1">
-          <span> To Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="date" id="dateTo" name="dateTo" class="w-100" required>
+          <span> Check-In </span>
+          <input type="text" id="dateFrom" class="datefrom w-100" name="departureDate" required placeholder="yyyy-mm-dd">
         </div>
+      
+        <div class="col-12 col-md-2 pe-1 form1">
+          <span> Check-Out </span>
+          <input type="text" id="dateTo" class="toDate w-100" name="returnDate" required placeholder="yyyy-mm-dd">
+        </div>
+
 
         <div class="col-12 col-md-2 form1">
           <span> Travellers & Class </span>
@@ -186,7 +198,7 @@
               <div class="my-2">
                 <button onclick="selectOption('passenger')" class="pbtn">Passenger</button>
                 <label for="passengerValue"></label>
-                <input type="number" id="passengerValue" value="0" min="0" oninput="updateTravelClass()">
+                <input type="number" id="passengerValue" value="0" min="0" oninput="updateTravelClass(event)">
               </div>
               <div>
                 <button onclick="selectOption('class')" class="selectbtn">Class</button>
@@ -205,20 +217,19 @@
         <div class="button text-center mt-0 mt-md-4">
           <input type="submit" value="Search Flights" id="myForm">
         </div>
-      </div>
-    </form>
+
+        </div>
+  </form>
 
 
+  </div><!--section1 end-->
 
-  </div>
-  <!--section1 end-->
-
-
+      
   <!--section2-->
 
   <div class="container section2">
 
-    <div class="row head2 mb-5  justify-content-center">
+    <div class="row head2 mb-4 mb-md-5  justify-content-center">
       <div class="col-12 text-center mb-2">
         <h2> WHY CHOOSE US </h2>
       </div>
@@ -253,8 +264,8 @@
   <!--section2-->
 
   <!--section3-->
-  <div class="container section3">
-    <div class="row head2 mb-5  justify-content-center">
+  <div class="container section3 ">
+    <div class="row head2 mb-4  justify-content-center">
       <div class="col-12 text-center mb-2">
         <h2> TOP DESTINATIONS </h2>
       </div>
@@ -353,10 +364,10 @@
 
   <!--section5-->
 
-  <div class="container  p-3 p-md-5 section5   ">
+  <div class="container  p-3 p-md-5 section5 contactform  ">
     <div class="row justify-content-right gap-4 gap-md-0">
       <div class="col-12 col-md-5  ">
-        <img src=".\images\pexels-snapwire-618613.webp.jpg" class="img-fluid">
+        <img src=".\images\pexels.jpg" class="img-fluid">
       </div>
 
      
@@ -392,7 +403,7 @@
         <div class="row mb-2">
           <div class="col">
             <textarea class="form-control" id="query" name="story" rows="5" cols="40" aria-label="Your message">
-                    </textarea>
+            </textarea>
 
           </div>
 
@@ -429,9 +440,7 @@
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">Arc Verified Travel Consultant</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p>
-              Adventure Allies INC
-            </p>
+            <p> <h4> Travizip </h4></p>
 
             <p> Discover, explore, and experience the world through remarkable travel adventures.</p>
           </div>
@@ -464,15 +473,20 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p> <a href="https://www.google.com/maps?q=4995 W 539 N 
-              Huntington, IN 46750"> <i class="ph ph-map-pin"></i> 4995 W 539 N
-                Huntington, IN 46750</a></p>
-            <p> <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Info@adventuresallies.com</a>
-            <p> <a href="mailto:Support@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Support@adventuresallies.com</a>
-            <p> <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i>+1 (888) 927 5575 </a>
-            <p> <a href="tel:+1 (888) 528 3365"> <i class="ph ph-phone-call"></i>+1 (888) 528 3365 </a> </p>
+            <p> <a href="https://www.google.com/maps?q=Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              "> <i class="ph ph-map-pin"></i> Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              </a></p>
+            <p> <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i>
+              Info@travizip.com</a>
+            <p> <a href="mailto:Support@travizip.com
+              "> <i class="ph ph-envelope-simple"></i> </i>
+              Support@travizip.com
+            </a>
+            <p> <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i>+1 (888) 575 7616 </a>
           </div>
           <!-- Grid column -->
         </div>
@@ -484,7 +498,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2023 Copyright:
-      <a class="text-white" href="index.html">Adventure Allies</a>
+      <a class="text-white" href="index.html">Travizip</a>
     </div>
     <!-- Copyright -->
   </footer>
@@ -492,6 +506,20 @@
 
   <!--java script-->
   <script src="./javascript/index.js"> </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+
+   <script>
+     document.addEventListener('DOMContentLoaded', function() {
+       flatpickr("#departureDate", {
+         // Additional options for departure date picker
+       });
+   
+       flatpickr("#returnDate", {
+         // Additional options for return date picker
+       });
+     });
+  </script> 
 
 
   <!--boostrap js-->

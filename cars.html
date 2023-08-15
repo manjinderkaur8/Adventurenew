@@ -33,9 +33,10 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
 
   <!--title-->
-  <title>Adventure Allies Cars Booking </title>
+  <title>Travizip Cars Booking </title>
 
 </head>
 
@@ -45,17 +46,20 @@
 
   <!--header for contact info-->
 
-  <div class="headers  position-fixed top-0 start-0 w-100 ">
+  <div class="headers  position-fixed top-0 start-0 w-100 "> <!--both headers-->
+
     <div class="contact-header  py-2">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-6 col-md-6 social-contact text-start">
-            <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i> </a>
-            <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i></a>
+          <div class="col-6  social-contact text-start ">
+            <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i> </a>
+            <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i></a>
           </div>
-          <div class="col-6   contact">
-            <a href="tel:+1 (888) 927 5575" class="d-flex align-items-center justify-content-end"> <i
-                class="ph-light ph-phone-call pe-1"></i> +1 (888) 927 5575</a>
+
+          <div class="col-6  contact">
+            <a href="tel:+1 (888) 575 7616" class="d-flex align-items-center justify-content-end"> <i
+                class="ph-light ph-phone-call pe-1"></i>+1 (888) 575 7616
+              </a>
           </div>
         </div>
       </div>
@@ -63,17 +67,16 @@
 
 
     <!--header 1 -->
-    <div class="header1 py-md-1 bg-white">
+
+    <div class="header1  bg-white">
       <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-4">
-            <a href="index.html">
-              <img src="./images/logo.png" alt="a white plane">
+        <div class="row d-flex align-items-center py-2">
+          <div class="col-2"><a href="index.html">
+              <img src="./images/logo.png" class="img-fluid" alt="a blue plane">
             </a>
           </div>
-
-          <div class="col-8 text-end menus">
-            <a href="index.html" class="flightlink"> FLIGHTS</a>
+          <div class="col-10 text-end menus">
+            <a href="index.html" class="flightlink  "> FLIGHTS</a>
             <a href="cars.html" class="carslink active"> CARS</a>
             <a href="hotels.html" class="hotelslink"> HOTELS</a>
             <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
@@ -86,10 +89,11 @@
       </div>
     </div>
   </div>
-  <!--header 2 -->
-  <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
 
-    <a href="index.html" class="flightslink"> FLIGHTS</a>
+  <!--header 2 -->
+
+  <div class="header2 d-flex flex-column  position-fixed top-0 start-0  justify-content-center align-items-center">
+    <a href="index.html" class="flightslink "> FLIGHTS</a>
     <a href="cars.html" class="carslink active"> CARS</a>
     <a href="hotels.html" class="hotelslink"> HOTELS</a>
     <a href="tourspackage.html" class="tourpackagelink"> TOUR PACKAGE</a>
@@ -102,9 +106,9 @@
   <!--section 1 -->
 
   <!--swipper1 -->
-  <div class="section1">
+  <div class="section1 carsec-1">
     <div>
-      <div class="carousel-inner">
+      <div class="carousel-inner flightinner">
         <div class="carousel-item  slide1 car-bg active">
           <div class="layer d-flex justify-content-center align-items-center w-100 h-100 text-center">
             <h2 class="carhead"> CARS </h2>
@@ -113,9 +117,7 @@
       </div>
     </div>
 
-
     <!--form--->
-
     <form class="container py-5 px-3 px-md-4 form " onsubmit="getFlights(event)">
 
       <div class="col-12  mb-4 ">
@@ -154,8 +156,8 @@
 
 
         <div class="col-12 col-md-2 pe-1 form1">
-          <span> From Date<span class="text-danger" style="background-color: transparent;">*</span> </span>
-          <input type="date" id="dateFrom" name="dateFrom" class="w-100" required>
+          <span> Date </span>
+          <input type="text" id="departureDate" class="datefrom w-100" name="departureDate" required placeholder="yyyy-mm-dd">
         </div>
 
 
@@ -175,42 +177,52 @@
       </div>
     </form>
 
-  </div> <!--section1 end-->
-  <div class="animation-box">
-    <h1>
-      <div class="d-flex justify-content-center align-items-center">
-        Car Rentals with
-        Adventures Allies</div>
+  </div> 
+  <!--section1 end-->
+
+
+  
+    <div class="container animation-box"> 
+    <h1 class="text-center mb-4">
+      Car Rentals with Travizip
     </h1>
-    <p>
-      At Adventures Allies, we believe that every traveler deserves the freedom to explore their destination at
+    <p class="text-center">
+      At Travizip, we believe that every traveler deserves the freedom to explore their destination at
       their own pace. Our commitment to providing you with seamless travel experiences extends beyond flights and
       hotels. Picture yourself driving along winding coastal roads, through quaint villages, or towards breathtaking
-      mountain vistas. With Adventures Allies' Car Rentals, you can turn your travel fantasies into reality. We
+      mountain vistas. With Travizip' Car Rentals, you can turn your travel fantasies into reality. We
       understand that each traveler's journey is unique, and that's why we offer a diverse range of rental options to
       suit your preferences.
     </p>
   </div>
-<!-- adiiing -->
-<div class="container">
-  <div class="content">
-      <img src=".\images\car.webp.jpg" alt="Car" class="car-image">
-      <div class="text-box">
-          <h2>Our Car Rental Promise</h2>
-          <p><li> Selection: Whether you're seeking the convenience of a compact car, the spaciousness of an SUV,
-              or the elegance of a luxury vehicle, we have a wide array of choices to match your needs.</li></p>
-          <p><li>Seamless Booking: Just like our flight and hotel booking services, Adventures Allies offers a
+
+
+
+<!---box 2 -->
+
+<div class="container box2">
+  <div class="row ">
+    <div class="col-12 col-md-6 p-0 ">
+      <img src="./images/car.jpg" class="img-fluid"> 
+    </div>
+
+    <div class="col-12 col-md-6 text-box p-3 ">
+      <h2 class="mb-2">Our Car Rental Promise</h2>
+          <p> Selection: Whether you're seeking the convenience of a compact car, the spaciousness of an SUV,
+              or the elegance of a luxury vehicle, we have a wide array of choices to match your needs.</p>
+          <p>Seamless Booking: Just like our flight and hotel booking services, Travizip offers a
               hassle-free car rental booking process. With a few clicks, you can secure the perfect vehicle for
-              your adventure.</li></p>
-          <p><li>Transparent Pricing: Say goodbye to hidden fees and unexpected charges. Our transparent pricing
+              your adventure.</p>
+          <p>Transparent Pricing: Say goodbye to hidden fees and unexpected charges. Our transparent pricing
               structure ensures that you know exactly what you're paying for, allowing you to plan your budget
-              with confidence.</li></p>
-          <p><li>Customization: Tailor your rental experience to fit your journey. Need a child seat or a GPS? No
-              problem. Adventures Allies lets you customize your rental with add-ons that enhance your comfort
-              and convenience.</li></p>
-      </div>
+              with confidence.</p>
+          <p>Customization: Tailor your rental experience to fit your journey. Need a child seat or a GPS? No
+              problem. Travizip lets you customize your rental with add-ons that enhance your comfort
+              and convenience.</p>
+    </div>
   </div>
 </div>
+
   <!--section2-->
   <div class="container carsec-2 py-5 px-3 px-md-4">
     <div class="row justify-content-center gap-4 ">
@@ -244,7 +256,7 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-12">
-            <p> <a href="tel:+1 (888) 927 5575"> Call Now: +1 (888) 927 5575 For Booking</a>
+            <p> <a href="tel:+1 (888) 575 7616"> Call Now: +1 (888) 575 7616 For Booking</a>
           </div>
         </div>
       </div>
@@ -266,9 +278,7 @@
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">Arc Verified Travel Consultant</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p>
-              Adventure Allies INC
-            </p>
+            <p> <h4> Travizip </h4></p>
 
             <p> Discover, explore, and experience the world through remarkable travel adventures.</p>
           </div>
@@ -301,15 +311,20 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-            <p> <a href="https://www.google.com/maps?q=4995 W 539 N 
-              Huntington, IN 46750"> <i class="ph ph-map-pin"></i> 4995 W 539 N
-                Huntington, IN 46750</a></p>
-            <p> <a href="mailto:Info@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Info@adventuresallies.com</a>
-            <p> <a href="mailto:Support@adventuresallies.com"> <i class="ph ph-envelope-simple"></i> </i>
-                Support@adventuresallies.com</a>
-            <p> <a href="tel:+1 (888) 927 5575"> <i class="ph ph-phone-call"></i>+1 (888) 927 5575 </a>
-            <p> <a href="tel:+1 (888) 528 3365"> <i class="ph ph-phone-call"></i>+1 (888) 528 3365 </a> </p>
+            <p> <a href="https://www.google.com/maps?q=Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              "> <i class="ph ph-map-pin"></i> Travizip LLC
+              3110 W 250 S
+              Liberty Ctr, IN 46766
+              </a></p>
+            <p> <a href="mailto:Info@travizip.com"> <i class="ph ph-envelope-simple"></i> </i>
+              Info@travizip.com</a>
+            <p> <a href="mailto:Support@travizip.com
+              "> <i class="ph ph-envelope-simple"></i> </i>
+              Support@travizip.com
+            </a>
+            <p> <a href="tel:+1 (888) 575 7616"> <i class="ph ph-phone-call"></i>+1 (888) 575 7616 </a>
           </div>
           <!-- Grid column -->
         </div>
@@ -321,7 +336,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2023 Copyright:
-      <a class="text-white" href="index.html">Adventure Allies</a>
+      <a class="text-white" href="index.html">Travizip</a>
     </div>
     <!-- Copyright -->
   </footer>
@@ -329,6 +344,20 @@
 
   <!--java script-->
   <script src="./javascript/index.js"> </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr("#departureDate", {
+        // Additional options for departure date picker
+      });
+  
+      flatpickr("#returnDate", {
+        // Additional options for return date picker
+      });
+    });
+  </script> 
 
 
   <!--boostrap js-->
