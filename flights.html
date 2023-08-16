@@ -220,11 +220,11 @@ redirect =()=> window.location.href = 'contact.html';
       // Loop through the flight data and populate the table
       flightData.data.forEach(flight => {
         const row = flightTable.insertRow();
-        row.insertCell().innerText = flight.lastTicketingDate;        ;
-        row.insertCell().innerText = flight.price.total;
+        row.insertCell().innerText = flight.cityFrom;
+        row.insertCell().innerText = flight.cityTo;
         row.insertCell().innerText = flight.local_departure;
         row.insertCell().innerText = flight.local_arrival;
-        row.insertCell().innerText = flight.price.total.toString();
+        row.insertCell().innerText = flight.price;
         const bookButton = document.createElement("button");
         bookButton.className += ' ' + 'btn btn-primary';
           bookButton.innerText = "Book Now";

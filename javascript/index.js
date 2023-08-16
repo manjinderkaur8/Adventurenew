@@ -182,7 +182,7 @@ function getData(){
     .then((response) => response.json())
     .then((response) => {
       sessionStorage.setItem("flightData", JSON.stringify(response));
-      window.location.href = "flights.html";
+      // window.location.href = "flights.html";
     })
     .catch((err) => console.error(err));
 }

@@ -21,6 +21,10 @@
       }
     </style>
   </head>
+  
+  <div class="container">
+
+    <div class="row justify-content-center align-items-center">
 
   <body>
     <h1>Flight Search Results</h1>
@@ -30,7 +34,7 @@
         <th>To City</th>
         <th>Departure Time (Local)</th>
         <th>Arrival Time (Local)</th>
-        <th>Price (EUR)</th>
+        <th>Price (USD)</th>
         <th>Booking Token</th>
       </tr>
     </table>
@@ -87,11 +91,11 @@ const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
         // Loop through the flight data and populate the table
         flightData.data.forEach((flight) => {
           const row = flightTable.insertRow();
-          row.insertCell().innerText = flight.cityFrom;
-          row.insertCell().innerText = flight.cityTo;
-          row.insertCell().innerText = flight.local_departure;
+          row.insertCell().innerText = flight.id;
+          row.insertCell().innerText = flight.lastTicketingDate;
+          row.insertCell().innerText = flight.validatingAirlineCodes ;
           row.insertCell().innerText = flight.local_arrival;
-          row.insertCell().innerText = flight.price;
+          row.insertCell().innerText = flight.price.total.toString();
           const bookButton = document.createElement("button");
           bookButton.innerText = "Book Now";
           bookButton.addEventListener("click", redirectToPage);
