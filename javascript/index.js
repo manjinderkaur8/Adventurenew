@@ -22,6 +22,7 @@ function selectOption(option) {
   selectedOption = option;
 }
 
+
 function updateTravelClass(event) {
   passengerValue =
     parseInt(document.getElementById("passengerValue").value, 10) || 0;
@@ -70,6 +71,7 @@ var swiper = new Swiper(".mySwiper", {
 
 // setInterval(function() { ObserveInputValue($('#fromCity').val()); }, 100);
 
+
 const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
 const client_id = "yFYG6GTjtwTv0av5R9azmzCg0vkIgLA6";
 const client_secret = "Hs1E44zzAC6fwePg";
@@ -80,7 +82,7 @@ var destinationLocation = "";
 var arrivalLocation = "";
 var departureDate = "";
 var arrivalDate = "";
-var traveladult= "";
+var traveladult = "";
 
 const AuthUser = async () => {
   try {
@@ -88,7 +90,7 @@ const AuthUser = async () => {
       `https://test.api.amadeus.com/v1/security/oauth2/token`,
       {
         method: "POST",
-        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           client_id: client_id,
           client_secret: client_secret,
@@ -121,9 +123,9 @@ const getFlights = (event) => {
 
   if (fromCity !== "" && toCity !== "" && dateFrom !== "" && dateTo !== "") {
     sendRequest(fromCity, toCity, dateFrom, dateTo, travelClass);
-  /*   console.log(
-      `${fromCity}, ${toCity}, ${dateFrom}, ${dateTo}, ${travelClass}`
-    ); */
+    /*   console.log(
+    `${fromCity}, ${toCity}, ${dateFrom}, ${dateTo}, ${travelClass}`
+  ); */
   }
 };
 
@@ -165,16 +167,16 @@ var sendMail = () => {
 
 sendRequest = (fromCity, toCity, dateFrom, dateTo, travelClass) => {
 
-getData();
- 
-};
+  getData();
 
-function getData(){
+};
+//ttps://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${destinationLocation}&destinationLocationCode=${arrivalLocation}&departureDate=${departureDate}&adults=1
+function getData() {
   fetch(
-    `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${destinationLocation}&destinationLocationCode=${arrivalLocation}&departureDate=${departureDate}&returnDate=${arrivalDate}&adults=2`,
+    `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${destinationLocation}&destinationLocationCode=${arrivalLocation}&departureDate=${departureDate}&returnDate=${arrivalDate}&adults=${traveladult}`,
     {
       method: "GET",
-      headers:  new URLSearchParams( {
+      headers: new URLSearchParams({
         "Authorization": `Bearer ${authToken}`,
       }),
     }
@@ -182,11 +184,40 @@ function getData(){
     .then((response) => response.json())
     .then((response) => {
       sessionStorage.setItem("flightData", JSON.stringify(response));
-      // window.location.href = "flights.html";
+      window.location.href = "flights.html";
     })
     .catch((err) => console.error(err));
 }
+
 // Function to fetch airport locations from Tequila Kiwi API
+async function fetchAirportLocations(query, dropdownId) {
+  const response = await fetch(
+    `https://tequila-api.kiwi.com/locations/query?term=${query}`,
+    {
+      headers: {
+        apikey: key,
+      },
+    }
+  );
+
+  const data = await response.json();
+  const dropdown = document.getElementById(dropdownId);
+
+  // Clear existing suggestions
+  dropdown.innerHTML = "";
+
+  // Add location suggestions to the dropdown
+  data.locations.forEach((location) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = location.name;
+    listItem.onclick = () => {
+      document.getElementById(dropdownId.replace("Dropdown", "")).value =
+        location.name;
+      dropdown.innerHTML = "";
+    };
+    dropdown.appendChild(listItem);
+  });
+}
 async function fetchAirportLocations(query, dropdownId) {
 
 
@@ -195,7 +226,7 @@ async function fetchAirportLocations(query, dropdownId) {
     `https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY,AIRPORT&keyword=${query}`,
     {
       method: "GET",
-      headers:  new URLSearchParams( {
+      headers: new URLSearchParams({
         "Authorization": `Bearer ${authToken}`,
       }),
     }
@@ -227,7 +258,7 @@ document.getElementById("fromCity").addEventListener("input", function () {
   // console.log(document.getElementById("fromCity"));
   const query = this.value.trim();
   if (query !== "") {
-    
+
     fetchAirportLocations(query, "fromCityDropdown");
   }
 });
@@ -244,7 +275,7 @@ function toggleDateInputs(enableRoundTrip) {
   const dateToInput = document.getElementById("dateTo");
 
   dateFromInput.disabled = false;
-  dateToInput.disabled = !enableRoundTrip; 
+  dateToInput.disabled = !enableRoundTrip;
 }
 
 window.onload = function () {

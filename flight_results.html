@@ -78,16 +78,12 @@ const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
       }
       }
       */
-
       function redirectToPage(event){
 
       }
       // Retrieve the flight data from session storage
       const flightData = JSON.parse(sessionStorage.getItem("flightData"));
-
-      if (flightData) {
-        const flightTable = document.getElementById("flightTable");
-
+ <h1>Flight Search Results</h1>
         // Loop through the flight data and populate the table
         flightData.data.forEach((flight) => {
           const row = flightTable.insertRow();
@@ -100,9 +96,5 @@ const key = "iTrn-p6BQN7ru9whsXaTUFby8wLILmvq";
           bookButton.innerText = "Book Now";
           bookButton.addEventListener("click", redirectToPage);
           row.insertCell().appendChild(bookButton);
-         
+
         });
-      }
-    </script>
-  </body>
-</html>

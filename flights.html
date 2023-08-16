@@ -103,18 +103,22 @@
 </div>
 
     
-    <div class="container flights">
+   
+      <div class="container table">
 
+        <div class="row justify-content-center align-items-center">
+    
 
         <div class="UI_Deal">
             <table class="table mx-5" id="flightTable">
                 <tr>
-                  <th scope="row">From City</th>
-                  <th scope="row">To City</th>
-                  <th scope="row">Departure Time (Local)</th>
-                  <th scope="row">Arrival Time (Local)</th>
-                  <th scope="row">Price (EUR)</th>
-                  <th scope="row">Book Token</th>
+                  <th scope="row">SNo.</th>
+                  <th scope="row">Departure Date</th>
+                  <th scope="row">AirlineCodes</th>
+                  <th scope="row">Arrival Airport</th>
+                  <th scope="row">Inter Airport</th>
+                  <th scope="row">Price (USD)</th>
+                  <th scope="row">Book </th>
                 </tr>
               </table>
             <div class="row">
@@ -124,7 +128,7 @@
                     </div>
                 </div>
                 
-                
+              </div>
             </div>
         </div>
     </div>
@@ -214,25 +218,49 @@
 
 redirect =()=> window.location.href = 'contact.html';
 
-    if (flightData) {
-      const flightTable = document.getElementById('flightTable');
+if (flightData) {
+  const flightTable = document.getElementById('flightTable');
 
-      // Loop through the flight data and populate the table
-      flightData.data.forEach(flight => {
-        const row = flightTable.insertRow();
-        row.insertCell().innerText = flight.cityFrom;
-        row.insertCell().innerText = flight.cityTo;
-        row.insertCell().innerText = flight.local_departure;
-        row.insertCell().innerText = flight.local_arrival;
-        row.insertCell().innerText = flight.price;
-        const bookButton = document.createElement("button");
-        bookButton.className += ' ' + 'btn btn-primary';
-          bookButton.innerText = "Book Now";
-          bookButton.addEventListener("click",redirect);
-          row.insertCell().appendChild(bookButton);
-        //row.insertCell().innerHTML = '<button type="button" class="btn btn-primary" >Book Now</button>';
-      });
+  // Loop through the flight data and populate the table
+  flightData.data.forEach(flight => {
+    const row = flightTable.insertRow();
+    row.insertCell().innerText = flight.id;
+    row.insertCell().innerText = flight.lastTicketingDate;
+    row.insertCell().innerText = flight.validatingAirlineCodes;
+
+    // Collect iataCodes for direct and intermediate flights
+    const directIataCodes = [];
+    const intermediateIataCodes = [];
+
+    for (let itinerary of flight.itineraries) {
+      if (itinerary.segments.length === 1) {
+        directIataCodes.push(itinerary.segments[0].arrival.iataCode);
+      } else if (itinerary.segments.length > 1) {
+        for (let segment of itinerary.segments) {
+          intermediateIataCodes.push(segment.arrival.iataCode);
+        }
+      }
     }
+
+    // Populate table cells with direct iataCodes
+    const directCell = row.insertCell();
+    directCell.innerText = directIataCodes.join(', ');
+
+    // Populate table cells with intermediate iataCodes
+    const intermediateCell = row.insertCell();
+    intermediateCell.innerText = intermediateIataCodes.join(', ');
+
+    // Insert the total price and book button
+    row.insertCell().innerText = flight.price.total.toString();
+    const bookButton = document.createElement("button");
+    bookButton.className = 'btn btn-primary';
+    bookButton.innerText = "Book Now";
+    bookButton.addEventListener("click", redirect);
+    const bookCell = row.insertCell();
+    bookCell.appendChild(bookButton);
+  });
+}
+
   </script>
     <script src="./java script/index.js"> </script>
 
